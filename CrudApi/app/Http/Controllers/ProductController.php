@@ -7,6 +7,21 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    /**
+     * @OA\Get(
+     *     path="/api/products",
+     *     summary="Get a list of products",
+     *     tags={"Products"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="A list of products",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(ref="#/components/schemas/Product")
+     *         )
+     *     )
+     * )
+     */
     public function index()
     {
         return Product::all();
