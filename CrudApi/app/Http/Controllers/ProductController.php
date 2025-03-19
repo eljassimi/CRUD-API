@@ -34,4 +34,10 @@ class ProductController extends Controller
         $product->update($request->all());
         return $product;
     }
+
+    public function destroy($id)
+    {
+        Product::destroy($id);
+        return response()->json(['message' => 'Produit supprimé']);
+    }
 }
